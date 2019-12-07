@@ -35,9 +35,17 @@ const CommentSchema = new Schema({
 		type: Date,
 		default: Date.now
 	}
-}, {versionKey: false});
+}, { versionKey: false });
 // 创建分类集合
 const Comment = mongoose.model('Comment', CommentSchema);
+
+// Comment.create({
+// 	content: "请问请问啊实打实的发",
+// 	author: '5de9c71ed61a183d3894b729', // 从数据库中查看用户id 
+// 	post: '5dea154dc0658b45689b1676'// 从数据库中查看文章id 
+// }).then(x => {
+// 	console.log('评论插入成功')
+// })
 
 // 文章分类格式校验（路由级别）
 const validateComment = comment => {
