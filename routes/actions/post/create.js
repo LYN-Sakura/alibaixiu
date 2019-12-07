@@ -12,6 +12,6 @@ module.exports = async (req, res) => {
 	const post = new Post(req.fields);
 	// 保存分类
 	await post.save();
-	// 响应
+	// 响应 
 	res.send(post);
 }
