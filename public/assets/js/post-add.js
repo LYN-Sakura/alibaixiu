@@ -29,13 +29,12 @@ $("#feature").on("change", function() {
 $("#articleAdd").on("submit", function() {
 	let formData = serializeObj($(this))
 	$.ajax({
-		url:"/posts",
-		type:"post",
-		data:formData,
-		success:function(res){
-			location.reload()
+		url: "/posts",
+		type: "post",
+		data: formData,
+		success: function(res) {
+			location.href = "/admin/posts.html"
 		}
-	})
-
+	}) 
 	return false;
 })
