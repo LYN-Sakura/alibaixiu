@@ -52,9 +52,8 @@
 		</div>
 
 		<div class="aside">
-			<div class="profile">
-				<img class="avatar" src="../uploads/avatar.jpg">
-				<h3 class="name">Coder</h3>
+			<div class="profile" id="user">
+				
 			</div>
 			<ul class="nav">
 				<li class="active">
@@ -93,6 +92,11 @@
 		<script>
 			NProgress.done()
 		</script>
+		<script src="../assets/vendors/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/html" id="userTpl">
+			<img class="avatar" src="{{avatar ? avatar : '../uploads/avatar.jpg'}}">
+			<h3 class="name">{{nickName}}</h3>
+		</script>
 	</body>
 </html>

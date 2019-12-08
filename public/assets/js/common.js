@@ -13,3 +13,11 @@ $("#logout").on("click", function() {
 		})
 	}
 })
+$.ajax({
+	url:"/users/"+userId,
+	type:"get",
+	success:function(res){
+		console.log(res)
+		$("#user").html(template("userTpl",res))
+	}
+})

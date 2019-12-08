@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Posts &laquo; Admin</title>
+		<script src="/login/status" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			if (!isLogin) location.href = 'login.html'
+		</script>
 		<link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" href="../assets/vendors/nprogress/nprogress.css">
@@ -68,9 +72,7 @@
 		</div>
 
 		<div class="aside">
-			<div class="profile">
-				<img class="avatar" src="../uploads/avatar.jpg">
-				<h3 class="name">Coder</h3>
+			<div class="profile" id="user">
 			</div>
 			<ul class="nav">
 				<li>
@@ -109,7 +111,7 @@
 		<script src="../assets/js/function.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../assets/vendors/art-template/template-web.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../assets/js/posts.js" type="text/javascript" charset="utf-8"></script>
-		<script>NProgress.done()</script>
+
 
 		<script type="text/html" id="articleListTpl">
 			{{each data}}
@@ -126,7 +128,13 @@
 			  </tr>
 			{{/each}}
   </script>
-
-
+		<script src="../assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/html" id="userTpl">
+			<img class="avatar" src="{{avatar ? avatar : '../uploads/avatar.jpg'}}">
+			<h3 class="name">{{nickName}}</h3>
+		</script>
+		<script>
+			NProgress.done()
+		</script>
 	</body>
 </html>
