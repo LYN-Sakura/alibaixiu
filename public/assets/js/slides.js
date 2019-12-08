@@ -6,7 +6,9 @@ function loadImg() {
 		url: "/slides",
 		type: "get",
 		success: function(res) {
-			console.log(res)
+			$("#tbody").html(template("listTpl",{
+				data:res
+			}))
 		}
 	})
 }
@@ -32,4 +34,31 @@ $("#image").on("change", function() {
 			$("#hide").val(res[0].img)
 		}
 	}) 
+})
+
+$("#addImg").on("submit",function(){
+	let formData = serializeObj($(this))
+	$.ajax({
+		url:"/slides",
+		type:"post",
+		data:formData,
+		success:function(res){
+			loadImg()
+		}
+	})
+	return false
+})
+
+//事件委托
+$("#tbody").on("click",".delete",function(){
+	if(confirm("您确定要删除吗")){
+		let id = $(this).data("id")
+		$.ajax({
+			url:"/slides/"+id,
+			type:"delete",
+			success:function(res){
+				loadImg()
+			}
+		})
+	}
 })
